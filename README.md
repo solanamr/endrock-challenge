@@ -56,5 +56,6 @@ Start the server
 The application will run at http://localhost:3000.
 
 Hope you have a great time checking the demo. I really enjoyed doing the project.
+
 Have a great day 👋
 
