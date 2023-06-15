@@ -1,11 +1,12 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Products, fetchProducts } from "../../redux/state/Products/productsSlice";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
+import { Products, fetchProducts } from "../../redux/state/Products/productsSlice";
 
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer"
 import Product from "../Products/Products";
+
 import banner from "../../assets/images/banner.jpg"
 
 const Home = () => {
@@ -21,8 +22,12 @@ const Home = () => {
 
     return (
         <section>
+
             <NavBar/>
+
             <img src={banner} alt="banner" className="mt-6 rounded"/>
+
+            {/* display of first 4 products */}
             <section className="flex justify-center flex-wrap">
                 {
                     firstProducts.map((display: any) =>(
@@ -33,6 +38,7 @@ const Home = () => {
                 }
             </section>
 
+            {/* about */}
             <section className="flex justify-center">
                 <div className="border border-maroon rounded mt-20 lg:px-10 lg:py-10 ">
                     <h2 className="text-3xl lg:text-7xl pt-3 font-bold text-maroon text-center">Who we are</h2>

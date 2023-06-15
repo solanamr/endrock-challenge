@@ -18,7 +18,11 @@ const ProductsList = () => {
 
     return (
         <section>
+
              <NavBar/>
+             
+
+             {/* list of all products */}
             <div className="flex flex-wrap justify-center ">
                 {
                     products.map((e, i) =>(
@@ -37,7 +41,9 @@ const ProductsList = () => {
                 }
             </div>
 
+
             <Footer/>
+
         </section>
     );
 }

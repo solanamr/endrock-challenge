@@ -13,7 +13,7 @@ interface ProductsState {
   data: Products[];
   dataCopy: Products[];
   loading: boolean;
-  error: string | undefined;
+  error: string | null;
 }
 
 
@@ -22,7 +22,7 @@ export const EmptyState: ProductsState = {
   data: [],
   dataCopy: [],
   loading: false,
-  error: undefined,
+  error: null,
 };
 
 export const fetchProducts = createAsyncThunk(
@@ -31,7 +31,6 @@ export const fetchProducts = createAsyncThunk(
     try {
       const res = await axios.get("https://fakestoreapi.com/products");
       const data = await res.data;
-      // console.log(data);
       return data;
     } catch (error) {
       console.log(error);
@@ -43,20 +42,10 @@ export const productsSlice = createSlice({
   name: "products",
   initialState: EmptyState,
   reducers: {
-    //   addProduct: (state, action: PayloadAction<Products>) => {
-    //   state.data.push(action.payload)
-    // },
-    //   filterProduct: (state, action: PayloadAction<Products>) => {
-    //   state.data = state.dataCopy.filter(
-    //     (p) => p.id !== action.payload
-    //   );
-    // },
-    //   resetProduct: (state) =>{
-    //   state.dataCopy = []
-    // },
+    
     fetchProductsRequest: (state) => {
       state.loading = true;
-      state.error = undefined;
+      state.error = null;
     },
     fetchProductsSuccess: (state, action: PayloadAction<Products>) => {
       state.loading = false;
@@ -73,7 +62,7 @@ export const productsSlice = createSlice({
     builder
       .addCase(fetchProducts.pending, (state) => {
         state.loading = true;
-        state.error = undefined;
+        state.error = null;
       })
       .addCase(fetchProducts.fulfilled, (state, action) => {
         state.loading = false;
@@ -87,6 +76,6 @@ export const productsSlice = createSlice({
   },
 });
 
-// export const { } = productsSlice.actions;
+
 
 export default productsSlice.reducer;

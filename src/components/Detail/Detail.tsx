@@ -19,10 +19,12 @@ const Detail = () => {
   const dispatch = useAppDispatch();
   const products = useAppSelector((state) => state.products.data);
   const { id } = useParams();
+
+  // filter of products to get the id
   const filterId = useMemo(() => products.filter((f: Products) => f.id == id), [products, id]);
  
+  // library variable
   const { addItem } = useCart();
-
 
 
   useEffect(() => {
@@ -36,6 +38,8 @@ const Detail = () => {
       <NavBar />
       
       <Cart/>
+
+      {/* display of details of the products with add cart button */}
       {filterId.map((p) => (
         <div key={toString(p.id)} className="flex flex-wrap mt-20 ">
           <div className="ml-5 mb-3">
@@ -53,6 +57,7 @@ const Detail = () => {
       ))}
 
       <Footer /> 
+
     </section>
   );
 };

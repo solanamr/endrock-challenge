@@ -1,3 +1,6 @@
+
+
+// list of first 4 products for landing
 const Product = ({ display = { image: '', title: '', price: '' } }) => {
   return (
     <section className="mt-10 lg:ml-10 border border-maroon w-80 h-[30.5em] rounded">
