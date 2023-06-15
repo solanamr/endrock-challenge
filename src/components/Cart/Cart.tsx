@@ -1,5 +1,4 @@
-import {  useState } from "react";
-
+import { useState, useCallback } from "react";
 import { HiOutlineShoppingCart, HiPlusSm, HiArrowSmLeft, HiX, HiOutlineMinusSm } from "react-icons/hi";
 import { motion } from "framer-motion";
 import { ToastContainer, toast } from 'react-toastify';
@@ -23,17 +22,17 @@ const Cart = () => {
 
   
 
-  const notify = () => {
+  const notify = useCallback(() => {
     emptyCart()
     toast("Tu compra se realizó con éxito");
-  }
+  }, [emptyCart]);
 
   return (
     <section>
       <div className="flex justify-end animate-pulse">
       <HiOutlineShoppingCart
           className="cursor-pointer text-3xl mt-10 mr-10 lg:mr-40"
-          onClick={() => setOpen(!open)}
+          onClick={() => setOpen(prevOpen => !prevOpen)}
         />
       </div>
       {open && (

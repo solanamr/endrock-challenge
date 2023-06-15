@@ -27,7 +27,7 @@ const Home = () => {
                 {
                     firstProducts.map((display: any) =>(
                         <Link to={`/products/${display.id}`}>
-                            <Product display={display}/>
+                            <Product key={display.id} display={display}/>
                         </Link>
                     ))
                 }

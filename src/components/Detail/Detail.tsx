@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { useParams } from "react-router-dom";
 import { Products, fetchProducts } from "../../redux/state/Products/productsSlice";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
@@ -19,7 +19,7 @@ const Detail = () => {
   const dispatch = useAppDispatch();
   const products = useAppSelector((state) => state.products.data);
   const { id } = useParams();
-  const filterId: Products[] = products.filter((f: any) => f.id == id);
+  const filterId = useMemo(() => products.filter((f: Products) => f.id == id), [products, id]);
  
   const { addItem } = useCart();
 

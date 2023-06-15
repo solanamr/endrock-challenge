@@ -1,4 +1,4 @@
-const Product = ({ display }) => {
+const Product = ({ display = { image: '', title: '', price: '' } }) => {
   return (
     <section className="mt-10 lg:ml-10 border border-maroon w-80 h-[30.5em] rounded">
       <div className="px-10 py-5 pt-10 items-center">
